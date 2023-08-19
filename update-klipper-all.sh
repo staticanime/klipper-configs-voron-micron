@@ -31,24 +31,24 @@ echo -e -n '\e[0;0m'
 read
 
 ################################################################################
-#
-## Flash secondary MCU - BTT EBB36 v1.2
-#make clean KCONFIG_CONFIG=klipper-btt-ebb36-v1.2.config
-#make menuconfig KCONFIG_CONFIG=klipper-btt-ebb36-v1.2.config
-#make -j 4 KCONFIG_CONFIG=klipper-btt-ebb36-v1.2.config
-#
-#echo -e -n "\e[0;33mBTT EBB36 v1.2 MCU firmware built, please check above for any errors. "
-#echo -e -n "\e[0;33mPress [Enter] to continue flashing, or [Ctrl+C] to abort"
-#echo -e -n '\e[0;0m'
-#read
-#
-#python3 ~/klipper/lib/canboot/flash_can.py -i can0 -f ~/klipper/out/klipper.bin -u 0a754ef78da4
-#
-#echo -e -n "\e[0;33mBTT EBB36 v1.2 MCU firmware flashed, please check above for any errors. "
-#echo -e -n "\e[0;33mPress [Enter] to continue flashing, or [Ctrl+C] to abort"
-#echo -e -n '\e[0;0m'
-#read
-#
+
+# Flash secondary MCU - BTT EBB36 v1.2
+make clean KCONFIG_CONFIG=klipper-btt-ebb36-v1.2.config
+make menuconfig KCONFIG_CONFIG=klipper-btt-ebb36-v1.2.config
+make -j 4 KCONFIG_CONFIG=klipper-btt-ebb36-v1.2.config
+
+echo -e -n "\e[0;33mBTT EBB36 v1.2 MCU firmware built, please check above for any errors. "
+echo -e -n "\e[0;33mPress [Enter] to continue flashing, or [Ctrl+C] to abort"
+echo -e -n '\e[0;0m'
+read
+
+python3 ~/klipper/lib/canboot/flash_can.py -i can0 -f ~/klipper/out/klipper.bin -u 1442063b740d
+
+echo -e -n "\e[0;33mBTT EBB36 v1.2 MCU firmware flashed, please check above for any errors. "
+echo -e -n "\e[0;33mPress [Enter] to continue flashing, or [Ctrl+C] to abort"
+echo -e -n '\e[0;0m'
+read
+
 ################################################################################
 
 # Flash Host MCU - Raspberry Pi
