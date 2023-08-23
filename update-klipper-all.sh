@@ -44,7 +44,7 @@ echo -e -n "\e[0;33mPress [Enter] to continue flashing, or [Ctrl+C] to abort"
 echo -e -n '\e[0;0m'
 read
 
-python3 ~/klipper/lib/canboot/flash_can.py -i can0 -f ~/klipper/out/klipper.bin -u 1442063b740d
+python3 ~/katapult/scripts/flash_can.py -i can0 -f ~/klipper/out/klipper.bin -u 1442063b740d
 
 echo -e -n "\e[0;33mBTT EBB36 v1.2 MCU firmware flashed, please check above for any errors. "
 echo -e -n "\e[0;33mPress [Enter] to continue flashing, or [Ctrl+C] to abort"
