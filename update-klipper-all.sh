@@ -22,9 +22,14 @@ echo -e -n "\e[0;33mPress [Enter] to continue flashing, or [Ctrl+C] to abort"
 echo -e -n '\e[0;0m'
 read
 
-#make flash FLASH_DEVICE=/dev/ttyACM0 KCONFIG_CONFIG=klipper-btt-manta-m8p-v1.1.config
-make flash FLASH_DEVICE=/dev/serial/by-id/usb-Klipper_stm32g0b1xx_4C00130013504B4633373520-if00 KCONFIG_CONFIG=klipper-btt-manta-m8p-v1.1.config
-make flash FLASH_DEVICE=/dev/serial/by-id/usb-katapult_stm32g0b1xx_4C00130013504B4633373520-if00 KCONFIG_CONFIG=klipper-btt-manta-m8p-v1.1.config
+if test -e /dev/serial/by-id/usb-Klipper_stm32g0b1xx_4C00130013504B4633373520-if00; then
+  make flash FLASH_DEVICE=/dev/serial/by-id/usb-Klipper_stm32g0b1xx_4C00130013504B4633373520-if00 KCONFIG_CONFIG=klipper-btt-manta-m8p-v1.1.config
+fi
+sleep 5
+if test -e /dev/serial/by-id/usb-katapult_stm32g0b1xx_4C00130013504B4633373520-if00; then
+  make flash FLASH_DEVICE=/dev/serial/by-id/usb-katapult_stm32g0b1xx_4C00130013504B4633373520-if00 KCONFIG_CONFIG=klipper-btt-manta-m8p-v1.1.config
+fi
+
 #python3 ~/klipper/lib/canboot/flash_can.py -d /dev/serial/by-id/usb-Klipper_stm32g0b1xx_4C00130013504B4633373520-if00 -f ~/klipper/out/klipper.bin
 #python3 ~/klipper/lib/canboot/flash_can.py -d /dev/serial/by-id/usb-CanBoot_stm32g0b1xx_4C00130013504B4633373520-if00 -f ~/klipper/out/klipper.bin
 echo -e -n "\e[0;33mBTT Manta M8P MCU firmware flashed, please check above for any errors. "
